@@ -1,6 +1,3 @@
-Add a test:
-
-```python
 from utils.distances import euclidean
 
 def test_euclidean():
