@@ -1,13 +1,15 @@
 import numpy as np
 
+def minkowski(a, b, p):
+    a = np.asarray(a)
+    b = np.asarray(b)
+    # Genel Minkowski formülü
+    return np.sum(np.abs(a - b) ** p) ** (1 / p)
+
 def manhattan(a, b):
-   a =np.asarray(a)
-   b =np.asarray(b)
-   return np.sum(np.abs(a-b))
+    # Manhattan aslında p=1 olan Minkowski'dir!
+    return minkowski(a, b, p=1)
 
 def euclidean(a, b):
-    d_x = b[0] - a[0]
-    d_y = b[1] - a[1]
-
-    distance = np.sqrt(d_x**2 + d_y**2)
-    return distance
+    # Öklid aslında p=2 olan Minkowski'dir!
+    return minkowski(a, b, p=2)
